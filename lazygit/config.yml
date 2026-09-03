@@ -21,6 +21,8 @@ customCommands:
             value: '🔖'
           - name: '🎨 コード整形・構造改善'
             value: '🎨'
+          - name: '➕ 依存関係を追加'
+            value: '➕'
           - name: '🔧 設定ファイル変更'
             value: '🔧'
           - name: '🗑️ 削除'
@@ -30,3 +32,6 @@ customCommands:
         key: 'CommitMessage'
     command: 'git commit -m {{ printf "%s %s" .Form.Gitmoji .Form.CommitMessage | quote }}'
     loadingText: 'コミット中...'
+
+gui:
+  mouseEvents: false
