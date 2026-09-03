@@ -13,13 +13,13 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
-    dependencies = { "mason-lspconfig.nvim" },
+    dependencies = { "mason-lspconfig.nvim", "saghen/blink.cmp" },
     config = function()
       require("mason-lspconfig").setup({
         ensure_installed = { "vtsls", "basedpyright" },
       })
 
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      local capabilities = require("blink.cmp").get_lsp_capabilities()
 
       vim.lsp.config("vtsls", {
         capabilities = capabilities,
@@ -46,9 +46,11 @@ return {
         callback = function(args)
           local opts = { buffer = args.buf }
           vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+          vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
           vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
           vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
           vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+          vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
         end,
       })
     end,
