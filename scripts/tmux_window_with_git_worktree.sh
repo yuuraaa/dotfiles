@@ -20,7 +20,7 @@ worktree_window() {
 
   # フォルダ名の設定（ブランチ名の`/`を`-`に置換）
   local dir_name="${branch//\//-}"
-  local worktree_dir="${repo_root}/../${repo_name}-worktrees/${dir_name}"
+  local worktree_dir="${repo_root}/../${repo_name}-${dir_name}"
 
   # worktree作成(既存ブランチなら追跡、新規ならbaseから分岐)
   if git show-ref --verify --quiet "refs/heads/${branch}"; then
