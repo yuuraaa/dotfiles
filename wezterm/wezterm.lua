@@ -3,6 +3,9 @@ local config = wezterm.config_builder()
 
 config.automatically_reload_config = true
 config.font_size = 14.0
+-- Kittyグラフィックスプロトコル(image.nvimのkittyバックエンド)を有効にする。
+-- このバージョン(20240203)ではデフォルトで無効のため、明示しないと画像が表示されない
+config.enable_kitty_graphics = true
 --config.font = wezterm.font("HackGen Console NF", { weight = "Regular", stretch="Normal", style="Normal" })
 config.font = wezterm.font_with_fallback({
   { family = "HackGen Console NF", weight = "Regular", stretch = "Normal", style = "Normal" },
