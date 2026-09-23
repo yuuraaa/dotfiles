@@ -2,6 +2,7 @@ require("config.lazy")
 
 vim.opt.termguicolors = true
 vim.opt.mouse = ""
+vim.opt.number = true
 
 -- tmux(3.7)は同期出力(ESC[?2026l)を受けるたびにペイン全体を再描画し、その際の
 -- 行末消去(ESC[K)でimage.nvimが表示したKittyグラフィックスの画像が消えてしまうため、
