@@ -35,3 +35,6 @@ customCommands:
 
 gui:
   mouseEvents: false
+os:
+  copyToClipboardCmd: 'printf "%s" {{text}} | tmux load-buffer -w -'
+  readFromClipboardCmd: "tmux save-buffer -"
